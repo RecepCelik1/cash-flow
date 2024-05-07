@@ -18,7 +18,7 @@ const Consequences = () => {
                                 <div className="text-xl font-semibold">Positive</div>
                             </div>
                             <div className="w-full flex items-center h-14">
-                                <div className="w-5/12 text-[#6b7177] text-xs">
+                                <div className="sm:w-5/12 w-full text-[#6b7177] text-xs">
                                 Cash flow is the net amount of money being transferred into and out of your business.
                                 </div>
                             </div>
@@ -33,7 +33,7 @@ const Consequences = () => {
                                 <div className="text-xl font-semibold">$0.00</div>
                             </div>
                             <div className="w-full flex items-center h-14">
-                                <div className="w-5/12 text-[#6b7177] text-xs">
+                                <div className="sm:w-5/12 w-full text-[#6b7177] text-xs">
                                 Cash inflow is the money coming into your business.</div>
                             </div>
                             
@@ -47,7 +47,7 @@ const Consequences = () => {
                                 <div className="text-xl font-semibold">$0.00</div>
                             </div>
                             <div className="w-full flex items-center h-14">
-                                <div className="w-5/12 text-[#6b7177] text-xs">
+                                <div className="sm:w-5/12 w-full text-[#6b7177] text-xs">
                                     Cash outflow is the money coming out of your business.
                                 </div>
                             </div>
@@ -62,7 +62,7 @@ const Consequences = () => {
                                 <div className="text-xl font-semibold">$0.00</div>
                             </div>
                             <div className="w-full flex items-center h-14">
-                                <div className="w-5/12 text-[#6b7177] text-xs">
+                                <div className="sm:w-5/12 w-full text-[#6b7177] text-xs">
                                 Net cash flow is the difference between your company's cash inflows and outflows.</div>
                             </div>
                             
