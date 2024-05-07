@@ -63,7 +63,7 @@ const Consequences = () => {
                             </div>
                             <div className="w-full flex items-center h-14">
                                 <div className="sm:w-5/12 w-full text-[#6b7177] text-xs">
-                                Net cash flow is the difference between your company's cash inflows and outflows.</div>
+                                Net cash flow is the difference between your company&apos;s cash inflows and outflows.</div>
                             </div>
                             
                         </div>
