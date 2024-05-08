@@ -1,8 +1,12 @@
 "use client"
 import React from "react"
 import Consequences from "./consequences";
+import { useSelector } from "react-redux";
 
 const App = () => {
+
+
+
     return (
         <div className="w-full flex justify-center items-center h-full min-h-screen">
         <div className="w-full max-w-[800px] bg-white flex flex-col p-4">
