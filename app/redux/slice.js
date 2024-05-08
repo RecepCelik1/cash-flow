@@ -1,21 +1,24 @@
 import { createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  value: 5,
+  cashInflow : 0,
+  cashOutflow : 0,
+  showResults : false
 }
 
-export const counterSlice = createSlice({
-  name: 'counter',
+export const consequenceSlice = createSlice({
+  name: 'consequence',
   initialState,
   reducers: {
 
-    incrementByAmount: (state, action) => {
-      state.value = action.payload
+    setConsequences: (state, action) => {
+      state.cashInflow = action.payload.inflow
+      state.cashOutflow = action.payload.outflow
+      state.showResults = true
     },
   },
 })
 
-// Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { setConsequences } = consequenceSlice.actions
 
-export default counterSlice.reducer
+export default consequenceSlice.reducer

@@ -1,10 +1,49 @@
 "use client"
-import React from "react"
-import Consequences from "./consequences";
-import { useSelector } from "react-redux";
+import React, { useState } from "react"
+import { useDispatch } from "react-redux";
+import { setConsequences } from "../redux/slice";
 
 const App = () => {
 
+        const [values , setValues ] = useState({
+            
+            inStore : 0,
+            onlineSales : 0,
+            otherRevenue : 0,
+            
+            rent : 0,
+            payroll : 0,
+            inventoryCost : 0,
+            utilities : 0,
+            equipmentAndSupplies : 0,
+            marketingSpend : 0,
+            taxes : 0,
+            insurence : 0,
+            interest : 0,
+            fees : 0,
+            otherCost : 0,
+
+        });
+
+        const dispatch = useDispatch()
+
+        const handleInputChanges = (field, value) => {
+
+            const parsedValue = value === "" ? 0 : parseFloat(value);
+
+            setValues(prevState => ({
+                ...prevState,
+                [field] : parsedValue,
+            }))
+        }
+
+        const cashInflow = values.inStore + values.onlineSales + values.otherRevenue
+
+        const cashOutflow = values.rent + values.payroll + values.inventoryCost + values.utilities + values.equipmentAndSupplies + values.marketingSpend + values.taxes + values.insurence + values.interest + values.fees + values.otherCost
+
+        const computeResults = () => {
+            dispatch(setConsequences({inflow : cashInflow , outflow : cashOutflow}))
+        }
 
 
     return (
@@ -32,6 +71,7 @@ const App = () => {
                             type="number"
                             className="w-full max-w-[370px] h-12 p-5 text-2xl font-gabarito border border-black"
                             placeholder="0.00"
+                            onChange={(e) => handleInputChanges("inStore" , e.target.value)}
                             style={{
                                 WebkitAppearance: "none",
                                 margin: 0, 
@@ -50,6 +90,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("onlineSales" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -66,13 +107,16 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("otherRevenue" , e.target.value)}
                             />
                         </div>
                     </div>
                     <div className="w-full">
                         <div className="text-[#6b7177]">Total Monthly Cash Inflow</div>
-                        <div className="mt-2 flex items-center text-[#6b7177] text-2xl h-12">
-                            $0.00
+                        <div className="mt-2 flex items-center text-[#6b7177] text-2xl h-12 overflow-hidden whitespace-nowrap text-overflow-ellipsis"
+                        style={{ maxWidth: '115px', overflow: 'hidden'}}
+                        >
+                            $ {cashInflow.toFixed(2)}
                         </div>
                     </div>
                   </div>
@@ -99,6 +143,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("rent" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -113,6 +158,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("payroll" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -131,6 +177,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("inventoryCost" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -145,6 +192,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("utilities" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -162,6 +210,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("equipmentAndSupplies" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -176,6 +225,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("marketingSpend" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -193,6 +243,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("taxes" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -207,6 +258,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("insurence" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -224,6 +276,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("interest" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -238,6 +291,7 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("fees" , e.target.value)}
                             />
                         </div>
                     </div>
@@ -256,13 +310,16 @@ const App = () => {
                                 WebkitAppearance: "none",
                                 margin: 0, 
                             }}
+                            onChange={(e) => handleInputChanges("otherCost" , e.target.value)}
                             />
                         </div>
                     </div>
                     <div className="w-full">
                         <div className="text-[#6b7177]">Total Monthly Cash Outflow</div>
-                        <div className="mt-2 flex items-center text-[#6b7177] text-2xl h-12">
-                            $0.00
+                        <div className="mt-2 flex items-center text-[#6b7177] text-2xl h-12 overflow-hidden whitespace-nowrap text-overflow-ellipsis"
+                            style={{ maxWidth: '115px', overflow: 'hidden'}}
+                        >
+                            $ {cashOutflow.toFixed(2)}
                         </div>
                     </div>
                   </div>
@@ -271,8 +328,11 @@ const App = () => {
             </div>
         </div>
         <div className="w-full">
-            <button className="w-full flex justify-center items-center bg-sky-600 text-white text-xl mt-8 rounded-md p-2 hover:bg-sky-800 transition-all duration-150 shadow-sm shadow-sky-600">
+            <button className="w-full flex justify-center items-center bg-sky-600 text-white text-xl mt-8 rounded-md p-2 hover:bg-sky-800 transition-all duration-150 shadow-sm shadow-sky-600"
+            onClick={() => computeResults()}
+            >
                 Calculate
+
             </button>
         </div>
 
