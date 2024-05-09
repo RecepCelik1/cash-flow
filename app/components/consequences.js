@@ -97,7 +97,7 @@ const Consequences = () => {
 
                 </div>
             </div>) : (<div>
-                <img src={"https://ih1.redbubble.net/image.4452951289.1159/flat,750x,075,f-pad,750x1000,f8f8f8.jpg"} width={800}
+                <img src={"https://gifdb.com/images/high/anime-dancing-evangelion-asuka-rei-38enmf2rltdnhdnt.gif"} width={800}
                 height={500}/>
             </div>)
             }

@@ -6,7 +6,7 @@ const styles = StyleSheet.create({
     page: {
       flexDirection: 'row',
       padding : 20,
-      justifyContent : 'center'
+      justifyContent : 'center',
     },
     section: {
       margin: 10,
@@ -42,10 +42,55 @@ const GeneratePDF = () => {
       const MyDocument = () => (
         <Document>
           <Page size="A4" style={styles.page}>
-              <View style={{display : 'flex', flexDirection : 'column', padding : 10,}}>
-                  <Text style={{textAlign : "center"}}>{status} Cash Flow</Text>
-                  <Text style={{marginTop : 5}}>{message1}</Text>
-                  <Text>{message2}</Text>
+              <View style={{display : 'flex', flexDirection : 'column', padding : 10, backgroundColor : "#e0f2fe", width : "70%", marginTop : "10px", height : "200px"}}>
+                  
+                  <View style={{display : "flex", alignItems : "center" , justifyContent : "center"}}>
+                    <Text style={{textAlign : "center", fontSize : "20px"}}>{status} Cash Flow</Text>
+                  </View>
+                  
+                  <View style={{display : "flex", alignItems : "center" , justifyContent : "center", marginTop : "20px"}}>
+                    <Text style={{textAlign : "center", fontSize : "10px"}}>{message1}</Text>
+                  </View>
+                  
+                  <View style={{display : "flex", alignItems : "center" , justifyContent : "center", marginTop : "5px"}}>
+                    <Text style={{textAlign : "center", fontSize : "10px"}}>{message2}</Text>
+                  </View>
+
+                  <View style={{display : "flex", flexDirection : "row", marginTop : "20px", justifyContent : "space-between"}}>
+                    <View style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                     <Text style={{textAlign : "center", fontSize : "10px"}}>Cash flow</Text>
+                    </View>
+                    <View style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                     <Text style={{textAlign : "center", fontSize : "10px"}}>{status}</Text>
+                    </View>
+                  </View>
+
+                  <View style={{display : "flex", flexDirection : "row", marginTop : "10px", justifyContent : "space-between"}}>
+                    <View style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                     <Text style={{textAlign : "center", fontSize : "10px"}}>Monthly cash inflow</Text>
+                    </View>
+                    <View style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                     <Text style={{textAlign : "center", fontSize : "10px"}}>${inflow.toFixed(2)}</Text>
+                    </View>
+                  </View>
+
+                  <View style={{display : "flex", flexDirection : "row", marginTop : "10px", justifyContent : "space-between"}}>
+                    <View style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                     <Text style={{textAlign : "center", fontSize : "10px"}}>Monthly cash outflow</Text>
+                    </View>
+                    <View style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                     <Text style={{textAlign : "center", fontSize : "10px"}}>${outflow.toFixed(2)}</Text>
+                    </View>
+                  </View>
+
+                  <View style={{display : "flex", flexDirection : "row", marginTop : "10px", justifyContent : "space-between"}}>
+                    <View style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                     <Text style={{textAlign : "center", fontSize : "10px"}}>Net cash flow</Text>
+                    </View>
+                    <View style={{display : "flex", justifyContent : "center", alignItems : "center"}}>
+                     <Text style={{textAlign : "center", fontSize : "10px"}}>${(inflow - outflow).toFixed(2)}</Text>
+                    </View>
+                  </View>
 
               </View>
           </Page>
